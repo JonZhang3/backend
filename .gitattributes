@@ -1,0 +1,4 @@
+*.java eol=lf
+*.js   eol=lf
+*.yaml eol=lf
+*.yml  eol=lf

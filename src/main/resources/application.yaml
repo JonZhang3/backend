@@ -1,0 +1,14 @@
+spring:
+    profiles:
+        active: @deploy.type@
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+        serialization:
+            indent-output: false
+    jpa:
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true
+                dialect: com.future.common.jpa.CustomDialect
