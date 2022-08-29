@@ -2,7 +2,8 @@ package com.future.system.controller;
 
 import com.future.common.config.FrameworkConfig;
 import com.future.common.utils.EncryptUtils;
-import com.future.common.utils.TokenUtils;
+import com.future.common.utils.jwt.TokenUtils;
+import com.future.common.utils.jwt.UserPayload;
 import com.future.common.web.R;
 import com.future.system.domain.Role;
 import com.future.system.domain.User;
@@ -70,9 +71,7 @@ public class LoginController {
         // 菜单
 
         data.put("menus", "");
-        Map<String, Object> payload = new HashMap<>();
-        payload.put("userid", user.getId());
-        payload.put("username", user.getUsername());
+        UserPayload payload = new UserPayload.Builder(user.getId(), user.getUsername()).build();
         String token = TokenUtils.generate(payload, jwt.getDuration(), jwt.getSecret());
         data.put("token", token);
         return data;

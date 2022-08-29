@@ -1,7 +1,8 @@
 package com.future.common.auth.shiro;
 
-import com.future.common.utils.TokenUtils;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
+
+import com.future.common.utils.jwt.TokenUtils;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
