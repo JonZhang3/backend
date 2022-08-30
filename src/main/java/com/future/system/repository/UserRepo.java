@@ -6,7 +6,7 @@ import com.future.system.domain.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends BaseJpaRepository<User, Long> {
+public interface UserRepo extends BaseJpaRepository<User, Long> {
 
     User findByUsername(String username);
 

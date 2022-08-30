@@ -19,7 +19,7 @@ public class FrameworkConfig {
 
     private Shiro shiro;
 
-    private Jwt jwt;
+    private Jwt jwt = new Jwt();
 
     @Data
     public static class Shiro {

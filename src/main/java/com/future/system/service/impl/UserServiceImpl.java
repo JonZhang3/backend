@@ -4,18 +4,19 @@ import com.future.common.exception.BizException;
 import com.future.common.utils.EncryptUtils;
 import com.future.system.domain.User;
 import com.future.system.dto.UserDto;
-import com.future.system.repository.UserRepository;
+import com.future.system.repository.UserRepo;
 import com.future.system.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
+    private final UserRepo userRepository;
 
     @Override
     public void resetPassword(UserDto dto) {
@@ -41,6 +42,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User loginFindUser(String username) {
         return this.userRepository.findByUsernameOrEmailOrPhone(username, username, username);
+    }
+
+    @Cacheable(key = "#id")
+    @Override
+    public User findById(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
 }

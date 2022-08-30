@@ -2,27 +2,27 @@ package com.future.system.controller;
 
 import com.future.common.utils.EncryptUtils;
 import com.future.system.domain.User;
-import com.future.system.repository.UserRepository;
+import com.future.system.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.future.common.web.R;
-import com.future.system.repository.DictionaryItemRepository;
-import com.future.system.repository.DictionaryRepository;
+import com.future.system.repository.DictionaryItemRepo;
+import com.future.system.repository.DictionaryRepo;
 
 @RestController
 @RequestMapping("/api/v1/admin")
 public class AdminController {
     
     @Autowired
-    private DictionaryRepository dictionaryRepository;
+    private DictionaryRepo dictionaryRepository;
     @Autowired
-    private DictionaryItemRepository dictionaryItemRepository;
+    private DictionaryItemRepo dictionaryItemRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepo userRepository;
 
     @GetMapping("/test")
     public R test() {

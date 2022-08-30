@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.future.system.domain.OperationLog;
 
 @Repository
-public interface OperationLogRepository extends JpaRepository<OperationLog, Long> {
+public interface OperationLogRepo extends JpaRepository<OperationLog, Long> {
 
     
 

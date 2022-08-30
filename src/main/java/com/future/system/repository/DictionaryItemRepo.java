@@ -6,6 +6,6 @@ import com.future.common.jpa.BaseJpaRepository;
 import com.future.system.domain.DictionaryItem;
 
 @Repository
-public interface DictionaryItemRepository extends BaseJpaRepository<DictionaryItem, Long> {
+public interface DictionaryItemRepo extends BaseJpaRepository<DictionaryItem, Long> {
 
 }

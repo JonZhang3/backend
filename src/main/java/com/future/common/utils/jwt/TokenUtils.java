@@ -65,6 +65,10 @@ public final class TokenUtils {
                 .sign(algorithm);
     }
 
+    public static boolean validate(@NotNull String token) {
+        return validate(token, DEFAULT_SECRET);
+    }
+
     /**
      * 校验 Token
      *
@@ -84,6 +88,11 @@ public final class TokenUtils {
         } catch (JWTVerificationException e) {
             return false;
         }
+    }
+
+    @Nullable
+    public static UserPayload validateAndGetPayload(@NotNull String token) {
+        return validateAndGetPayload(token, DEFAULT_SECRET);
     }
 
     /**

@@ -12,6 +12,8 @@ public interface UserService {
      */
     void resetPassword(UserDto userDto);
 
+    User findById(Long id);
+
     User loginFindUser(String username);
 
 }

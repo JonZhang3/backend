@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ResourceRepository extends BaseJpaRepository<Resource, Long> {
+public interface ResourceRepo extends BaseJpaRepository<Resource, Long> {
 
     List<Resource> findByTypeIn(List<ResourceType> types);
 

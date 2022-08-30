@@ -52,7 +52,7 @@ public class ShiroConfig {
         return manager;
     }
 
-    @Bean
+    @Bean("shiroRealm")
     public ShiroRealm shiroRealm() {
         return new ShiroRealm();
     }
