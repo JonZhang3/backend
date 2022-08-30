@@ -1,12 +1,14 @@
 package com.future.common.web.config;
 
-import com.future.common.exception.BizException;
-import com.future.common.web.R;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.future.common.exception.BizException;
+import com.future.common.web.R;
+
+import lombok.extern.slf4j.Slf4j;
 
 @ControllerAdvice
 @Slf4j

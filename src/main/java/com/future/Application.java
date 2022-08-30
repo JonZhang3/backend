@@ -1,12 +1,13 @@
 package com.future;
 
-import com.future.common.jpa.BaseJpaRepositoryFactoryBean;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import com.future.common.jpa.BaseJpaRepositoryFactoryBean;
 
 @SpringBootApplication
 @EnableJpaAuditing // 开启审计功能

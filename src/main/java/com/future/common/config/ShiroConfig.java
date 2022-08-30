@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.future.common.auth.shiro.JwtFilter;
 import com.future.common.auth.shiro.ShiroRealm;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import javax.servlet.Filter;
 
 @Configuration
 public class ShiroConfig {
@@ -40,6 +43,11 @@ public class ShiroConfig {
         map.put("/**/*.js.map", "anon");
         map.put("/**/*.css.map", "anon");
 
+        Map<String, Filter> filters = new HashMap<>();
+        filters.put("jwt", new JwtFilter());
+        factoryBean.setFilters(filters);
+
+        map.put("/**", "jwt");
 
         factoryBean.setFilterChainDefinitionMap(map);
         return factoryBean;
