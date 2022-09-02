@@ -1,5 +1,8 @@
 package com.future.common.spring;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
@@ -7,6 +10,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Component
 @Lazy(value = false)
@@ -53,7 +58,7 @@ public class SpringUtils implements ApplicationContextAware, DisposableBean {
     }
 
     public static String getProperty(String key, String defaultValue) {
-        if(applicationContext == null) {
+        if (applicationContext == null) {
             return null;
         }
         return applicationContext.getEnvironment().getProperty(key, defaultValue);
@@ -61,6 +66,24 @@ public class SpringUtils implements ApplicationContextAware, DisposableBean {
 
     public static String getApplicationName() {
         return getProperty("spring.application.name");
+    }
+
+    /**
+     * Get HttpServletRequest
+     * 
+     * @return HttpServletRequest
+     */
+    public static HttpServletRequest getRequest() {
+        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+    }
+
+    /**
+     * Get HttpServletResponse
+     * 
+     * @return HttpServletResponse
+     */
+    public static HttpServletResponse getResponse() {
+        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
     }
 
     @Override

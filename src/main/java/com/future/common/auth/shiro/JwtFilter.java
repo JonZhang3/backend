@@ -22,7 +22,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         try {
             return executeLogin(request, response);
         } catch (Exception e) {
-            LOGGER.error("", e);
+            LOGGER.error(e.getMessage(), e);
             return false;
         }
     }

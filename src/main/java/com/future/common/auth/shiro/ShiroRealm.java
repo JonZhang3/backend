@@ -34,8 +34,7 @@ public class ShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        System.out.println("doGetAuthorizationInfo");
-        User user;
+        User user = null;
         if(principals != null) {
             user = (User) principals.getPrimaryPrincipal();
         }
